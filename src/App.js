@@ -1,6 +1,7 @@
+import './App.sass';
 import {BrowserRouter, Route, Routes, Outlet} from "react-router-dom";
 import InitialPage from "./components/initialPage/InitialPage";
-import './App.css';
+import Header from "./components/header/Header";
 
 const App = () => {
     return (
@@ -19,6 +20,7 @@ const App = () => {
 const Layout = () => {
     return (
         <>
+            <Header />
             <Outlet/>
         </>
     )
