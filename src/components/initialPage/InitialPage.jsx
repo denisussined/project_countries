@@ -1,3 +1,5 @@
+import './InitialPage.sass'
+
 const InitialPage = () => {
     return (
         <main className={"initialPage"}>
