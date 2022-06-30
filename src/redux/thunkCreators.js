@@ -4,7 +4,7 @@ import {api} from "../api/api";
 export const getCountry = (name) => dispatch => {
 
     api.getCountry(name).then(data => {
-        let info = {
+        let filteredData = {
             'flag': data.flags.svg,
             'country': data.name.common,
             'official name': data.name.official,
@@ -17,6 +17,6 @@ export const getCountry = (name) => dispatch => {
             'borders': data.borders ? data.borders.join(', ') : '---',
         }
 
-        dispatch(setCountry(info))
+        dispatch(setCountry(filteredData))
     })
 }

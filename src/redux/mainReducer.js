@@ -4,7 +4,7 @@ let initialState = {
     countries: [],
 
     country: {
-        info: null,
+        data: null,
         isLoaded: false
     },
 }
@@ -20,7 +20,7 @@ const mainReducer = (state = initialState, action) => {
             ...state,
             country: {
                 ...state.country,
-                info: action.info,
+                data: action.data,
                 isLoaded: true
             }
         }
@@ -29,7 +29,7 @@ const mainReducer = (state = initialState, action) => {
             ...state,
             country: {
                 ...state.country,
-                info: null,
+                data: null,
                 isLoaded: false
             }
         }
