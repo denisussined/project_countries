@@ -1,33 +1,27 @@
+import React from "react";
 import './CountryPage.sass'
 
-const CountryPage = ({desc, info}) => {
+const CountryPage = ({data}) => {
 
     return (
         <main>
             <div className={"countryPage"}>
-                {genTable(desc, info)}
+                {data.map((row, index, arr) =>
+                    index === 0
+                        ?
+                        <React.Fragment key={index}>
+                            <div key={index} className={"desc"}>{row[0]}</div>
+                            <img key={index + arr.length} className={"info flag"} src={row[1]} alt={"flag"}/>
+                        </React.Fragment>
+                        :
+                        <React.Fragment key={index}>
+                            <div key={index} className={"desc"}>{row[0]}</div>
+                            <div key={index + arr.length} className={"info"}>{row[1]}</div>
+                        </React.Fragment>
+                )}
             </div>
         </main>
     )
-}
-
-const genTable = (desc, info) => { //return an array, like [<desc/>, <info/>, <desc/>, <info/>, ...]
-    let table = []
-    for (let i = 0; i < desc.length; i++) {
-        if (i === 0) {
-            table.push(
-                <div key={i} className={"desc"}>{desc[i]}</div>,
-                <img key={i+desc.length} src={info[i]} className={"info flag"} alt={'flag'}/>
-            )
-        } else {
-            table.push(
-                <div key={i} className={"desc"}>{desc[i]}</div>,
-                <div key={i+desc.length} className={"info"}>{info[i]}</div>
-            )
-        }
-    }
-
-    return table
 }
 
 export default CountryPage

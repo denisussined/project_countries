@@ -6,7 +6,7 @@ import {getCountry} from "../../redux/thunkCreators";
 import Loader from "../loader/Loader";
 import CountryPage from "./CountryPage";
 
-const CountryPageContainer = ({getCountry, clearCountry, info, isLoaded}) => {
+const CountryPageContainer = ({getCountry, clearCountry, data, isLoaded}) => {
 
     let {name} = useParams()
 
@@ -17,11 +17,11 @@ const CountryPageContainer = ({getCountry, clearCountry, info, isLoaded}) => {
 
     return !isLoaded
         ? <Loader />
-        : <CountryPage desc={Object.keys(info)} info={Object.values(info)} />
+        : <CountryPage data={Object.entries(data)}/>
 }
 
 const mapStateToProps = (state) => ({
-    info: state.mainData.country.info,
+    data: state.mainData.country.data,
     isLoaded: state.mainData.country.isLoaded
 })
 
