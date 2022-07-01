@@ -5,7 +5,7 @@ const instance = axios.create({
 })
 
 export const api = {
-    getCountries: () => instance.get('all'),
+    getCountries: () => instance.get('all').then(res => res.data),
 
     getCountry: name => instance.get(`name/${name}`).then(res => res.data[0])
 }

@@ -1,4 +1,4 @@
-import {setCountry} from "./actionCreators";
+import {setCountries, setCountry} from "./actionCreators";
 import {api} from "../api/api";
 
 export const getCountry = (name) => dispatch => {
@@ -18,5 +18,17 @@ export const getCountry = (name) => dispatch => {
         }
 
         dispatch(setCountry(filteredData))
+    })
+}
+
+export const getCountries = () => dispatch => {
+
+    api.getCountries().then(data => {
+        let filteredData = data.map(country => ({
+            flag: country.flags.svg,
+            name: country.name.common
+        }))
+
+        dispatch(setCountries(filteredData))
     })
 }

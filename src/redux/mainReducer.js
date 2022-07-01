@@ -1,7 +1,10 @@
 import {CLEAR_COUNTRY, SET_COUNTRIES, SET_COUNTRY} from "./actions";
 
 let initialState = {
-    countries: [],
+    countries: {
+        data: null,
+        isLoaded: false
+    },
 
     country: {
         data: null,
@@ -13,7 +16,11 @@ const mainReducer = (state = initialState, action) => {
     switch (action.type) {
         case SET_COUNTRIES: return {
             ...state,
-            countries: action.countries
+            countries: {
+                ...state.countries,
+                data: action.data,
+                isLoaded: true
+            }
         }
 
         case SET_COUNTRY: return {
