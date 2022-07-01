@@ -14,6 +14,10 @@
   align-items: center
   justify-content: space-evenly
 
+  &:hover
+    cursor: pointer
+    background-color: rgba(224,222,217,0.99)
+
 .countriesItem__flag
   padding: 10px 10px 0
   height: 70px
@@ -22,6 +26,27 @@
   padding: 5px 10px 10px
   text-align: center
   font-size: 16px
+
+nav
+  display: flex
+  flex-direction: column
+  justify-content: end
+  align-items: center
+
+  button.back, button.forward
+    padding: 5px 20px
+    margin: 10px 20px 20px
+    border: 0
+    border-radius: 5px
+    background-color: #baefd1
+    font-weight: bold
+
+    &:hover
+      cursor: pointer
+      background-color: #87efdf
+
+    &:disabled
+      background-color: white
 
 @media (max-width: 450px)
   .countriesPage
