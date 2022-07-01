@@ -1,0 +1,36 @@
+.countriesPage
+  margin: 15px 10px
+
+  display: grid
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr))
+  grid-gap: 7px
+
+.countriesItem
+  background-color: rgba(239,237,232,0.99)
+  border-radius: 7px
+
+  display: flex
+  flex-direction: column
+  align-items: center
+  justify-content: space-evenly
+
+.countriesItem__flag
+  padding: 10px 10px 0
+  height: 70px
+
+.countriesItem__name
+  padding: 5px 10px 10px
+  text-align: center
+  font-size: 16px
+
+@media (max-width: 450px)
+  .countriesPage
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr))
+
+  .countriesItem__flag
+    padding: 7px 7px 0
+    height: 50px
+
+  .countriesItem__name
+    padding: 3px 7px 7px
+    font-size: 13px
