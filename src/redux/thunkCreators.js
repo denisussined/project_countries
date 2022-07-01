@@ -7,13 +7,13 @@ export const getCountry = (name) => dispatch => {
         let filteredData = {
             'flag': data.flags.svg,
             'country': data.name.common,
-            'official name': data.name.official,
-            'capital': data.capital.join(' '),
-            'region': data.region,
+            'official name': data.name.official ? data.name.official : '---',
+            'capital': data.capital ? data.capital.join(' ') : '---',
+            'region': data.region ? data.region : '---',
             'languages': data.languages ? Object.values(data.languages).join(', ') : '---',
             'currencies': data.currencies ? Object.values(data.currencies).map(cur => cur.name).join(' ') : '---',
-            'area': data.area,
-            'population': data.population,
+            'area': data.area ? data.area : '---',
+            'population': data.population ? data.population : '---',
             'borders': data.borders ? data.borders.join(', ') : '---',
         }
 
