@@ -3,7 +3,8 @@ import {CLEAR_COUNTRY, SET_COUNTRIES, SET_COUNTRY} from "./actions";
 let initialState = {
     countries: {
         data: null,
-        isLoaded: false
+        isLoaded: false,
+        itemsPerPage: 32
     },
 
     country: {
