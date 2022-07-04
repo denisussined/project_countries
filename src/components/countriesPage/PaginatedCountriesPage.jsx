@@ -1,11 +1,11 @@
 import CountriesPage from "./CountriesPage";
 import {useEffect, useState} from "react";
 
-const PaginatedCountriesPage = ({data, itemsPerPage}) => {
+const PaginatedCountriesPage = ({data, itemsPerPage, previousPage, setPreviousPage, previousOffset}) => {
 
     const [currentData, setCurrentData] = useState([])
-    const [currentPage, setCurrentPage] = useState(0)
-    const [dataOffset, setDataOffset] = useState(0)
+    const [currentPage, setCurrentPage] = useState(previousPage ? previousPage : 0)
+    const [dataOffset, setDataOffset] = useState(previousOffset ? previousOffset : 0)
     const totalPageCount = Math.ceil(data.length / itemsPerPage)
 
     const changePage = (direction) => {
@@ -20,6 +20,12 @@ const PaginatedCountriesPage = ({data, itemsPerPage}) => {
 
     useEffect(() => {
         setCurrentData(data.slice(dataOffset, dataOffset + itemsPerPage))
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        })
+
+        return () => setPreviousPage(currentPage, dataOffset)
     }, [dataOffset])
 
     return <CountriesPage

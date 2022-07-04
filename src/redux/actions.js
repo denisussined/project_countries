@@ -1,3 +1,4 @@
 export const SET_COUNTRIES = 'SET_COUNTRIES'
 export const SET_COUNTRY = 'SET_COUNTRY'
 export const CLEAR_COUNTRY = 'CLEAR_COUNTRY'
+export const SET_PREVIOUS_PAGE = 'SET_CURRENT_PAGE'

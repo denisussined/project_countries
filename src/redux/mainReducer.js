@@ -1,10 +1,12 @@
-import {CLEAR_COUNTRY, SET_COUNTRIES, SET_COUNTRY} from "./actions";
+import {CLEAR_COUNTRY, SET_COUNTRIES, SET_COUNTRY, SET_PREVIOUS_PAGE} from "./actions";
 
 let initialState = {
     countries: {
         data: null,
         isLoaded: false,
-        itemsPerPage: 32
+        itemsPerPage: 32,
+        previousPage: null,
+        previousOffset: null
     },
 
     country: {
@@ -21,6 +23,15 @@ const mainReducer = (state = initialState, action) => {
                 ...state.countries,
                 data: action.data,
                 isLoaded: true
+            }
+        }
+
+        case SET_PREVIOUS_PAGE: return {
+            ...state,
+            countries: {
+                ...state.countries,
+                previousPage: action.pageNumber,
+                previousOffset: action.offset,
             }
         }
 
